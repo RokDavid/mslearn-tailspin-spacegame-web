@@ -32,6 +32,12 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop
+
 - task: AzureRmWebAppDeployment@4
   displayName: 'Azure App Service Deploy: trgdevopsyApp'
   inputs:
