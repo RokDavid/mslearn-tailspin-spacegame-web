@@ -39,12 +39,17 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
 
+#####automat
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
 - task: AzureRmWebAppDeployment@4
   displayName: 'Azure App Service Deploy: trgdevopsyApp'
   inputs:
     azureSubscription: 'CI_Deploy'
     WebAppName: trgdevopsyApp
     VirtualApplication: 'Trg_CI_app'
-
-
-
