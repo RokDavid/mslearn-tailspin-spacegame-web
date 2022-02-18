@@ -71,12 +71,11 @@ steps:
 
   - task: AzureRmWebAppDeployment@4
     inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'CI_Deploy'
-      appType: 'webApp'
-      WebAppName: 'trgdevopsyApp'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-
+      ConnectionType: "AzureRM"
+      azureSubscription: "CI_Deploy"
+      appType: "webApp"
+      WebAppName: "trgdevopsyApp"
+      packageForLinux: "$(Build.ArtifactStagingDirectory)/$(buildConfiguration)/**/*.zip"
 # - task: AzureWebApp@1
 #   inputs:
 #     azureSubscription: 'CI_Deploy'
