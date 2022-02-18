@@ -20,6 +20,8 @@ steps:
       version: "5.x"
 
   - task: NodeTool@0
+    inputs:
+      versionSpec: ">= 6.10"
 
   - task: Npm@1
     displayName: "Run npm install"
