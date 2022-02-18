@@ -68,3 +68,19 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish Artifact: drop"
     condition: succeeded()
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'CI_Deploy'
+      appType: 'webApp'
+      WebAppName: 'trgdevopsyApp'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: 'CI_Deploy'
+#     appType: 'webApp'
+#     appName: 'trgdevopsyApp'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+#     deploymentMethod: 'auto'
