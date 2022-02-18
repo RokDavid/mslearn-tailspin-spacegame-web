@@ -23,9 +23,6 @@ steps:
     inputs:
       versionSpec: ">=16.14"
 
-  # - script: npm install
-  #   displayName: "Run npm install manually"
-
   - task: Npm@1
     displayName: "Run npm install"
     inputs:
@@ -35,8 +32,8 @@ steps:
   - script: "./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot"
     displayName: "Compile Sass assets"
 
-  - task: gulp@1
-    displayName: "Run gulp tasks"
+  # - task: gulp@1
+  #   displayName: "Run gulp tasks"
 
   - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
     displayName: "Save build info"
