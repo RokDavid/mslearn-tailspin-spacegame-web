@@ -19,12 +19,12 @@ steps:
       packageType: sdk
       version: "5.x"
 
-  # - task: NodeTool@0
-  #   inputs:
-  #     versionSpec: ">=16.14"
+  - task: NodeTool@0
+    inputs:
+      versionSpec: ">=16.14"
 
-  - script: npm install
-    displayName: "Run npm install manually"
+  # - script: npm install
+  #   displayName: "Run npm install manually"
 
   - task: Npm@1
     displayName: "Run npm install"
