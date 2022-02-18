@@ -21,11 +21,15 @@ steps:
 
   - task: NodeTool@0
     inputs:
-      versionSpec: "v10.19.0"
+      versionSpec: ">=16.14"
+
+  - script: npm install
+    displayName: "Run npm install manually"
 
   - task: Npm@1
     displayName: "Run npm install"
     inputs:
+      command: "install"
       verbose: false
 
   - script: "./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot"
